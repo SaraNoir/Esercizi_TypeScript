@@ -20,7 +20,7 @@ interface CountryLanguages {
 //
 // This should fix the type error on Line 28.
 
-type CountryWithLanguages = Country;
+type CountryWithLanguages = Country & CountryLanguages;
 
 const countryA: CountryWithLanguages = {
     name: "Greece",
@@ -28,6 +28,7 @@ const countryA: CountryWithLanguages = {
     languages: ["Greek"]
 };
 
+type CountryWithStatistics = Country & CountryStatistics
 // Create an intersection type named `CountryWithStatistics` that
 // describes the shape of the object below. Use the interfaces
 // defined above.
@@ -37,7 +38,7 @@ const countryA: CountryWithLanguages = {
 // Add a type annotation with the `CountryWithStatistics` type on
 // the variable `countryB`.
 
-const countryB = {
+const countryB: CountryWithStatistics = {
     name: "China",
     code: "CN",
     population: 1_412_600_000
